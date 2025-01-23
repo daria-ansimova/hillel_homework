@@ -6,13 +6,14 @@ if 0 <= number_input <= 8640000:
     minutes, residue3 = divmod(residue2, 60)
     seconds = residue3
 
-    last_1_digit = days % 10
-    days_word = (
-        "днів" if days in (0, 11, 12, 13, 14) or last_1_digit in (0, 5, 6, 7, 8, 9)
-        else "день" if last_1_digit == 1
-        else "дні" if last_1_digit in (2, 3, 4)
-        else "днів"
-    )
+    if days % 100 in range(11, 14):
+        days_word = "днів"
+    elif days % 10 == 1:
+        days_word = "день"
+    elif days % 10 in range(2, 4):
+        days_word = "дні"
+    else:
+        days_word = "днів"
 
     print(f"{days} {days_word}, {str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}")
 
@@ -23,7 +24,7 @@ else:
 
 
 # Solution with additional validation
-
+#
 # while True:
 #     number_input = input("Enter number between 0 and 8640000:")
 #
@@ -39,12 +40,14 @@ else:
 # minutes, residue3 = divmod(residue2, 60)
 # seconds = residue3
 #
-# last_1_digit = days % 10
-# days_word = (
-#     "днів" if days in (0, 11, 12, 13, 14) or last_1_digit in (0, 5, 6, 7, 8, 9)
-#     else "день" if last_1_digit == 1
-#     else "дні" if last_1_digit in (2, 3, 4)
-#     else "днів"
-#  )
+#     if days % 100 in range(11, 14):
+#         days_word = "днів"
+#     elif days % 10 == 1:
+#         days_word = "день"
+#     elif days % 10 in range(2, 4):
+#         days_word = "дні"
+#     else:
+#         days_word = "днів"
+#
 #
 # print(f"{days} {days_word}, {str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}")
