@@ -1,9 +1,8 @@
 def second_index(text, some_str):
     if text.count(some_str) <= 1:
         return None
-    else:
-        index = text.find(some_str)
-        return text.find(some_str, index + 1)
+    index = text.find(some_str)
+    return text.find(some_str, index + 1)
 
 
 # Тесты
