@@ -23,7 +23,6 @@ class Purchase:
     def __init__(self, user):
         self.products = {}
         self.user = user
-        self.total = 0
 
     def add_item(self, item, cnt):
         self.products[item] = cnt
